@@ -17,7 +17,33 @@
                     <view key="view" contentMode="scaleToFill" id="Stf-hg-wea">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzt-nW-qap">
+                                <rect key="frame" x="150" y="152" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <wkWebView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YPE-By-Z3z" customClass="InternetDetailVeiwController">
+                                <rect key="frame" x="0.0" y="446" width="375" height="124"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="179" id="pdA-CB-Jlz"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YPE-By-Z3z" firstAttribute="bottom" secondItem="CIb-2q-tRD" secondAttribute="bottom" id="73b-zs-wfR"/>
+                            <constraint firstItem="Gzt-nW-qap" firstAttribute="top" secondItem="CIb-2q-tRD" secondAttribute="top" constant="88" id="BO7-gU-ZT1"/>
+                            <constraint firstAttribute="trailing" secondItem="YPE-By-Z3z" secondAttribute="trailing" id="QX7-cW-50p"/>
+                            <constraint firstItem="YPE-By-Z3z" firstAttribute="leading" secondItem="Stf-hg-wea" secondAttribute="leading" id="aWf-q2-Hgl"/>
+                            <constraint firstItem="Gzt-nW-qap" firstAttribute="leading" secondItem="CIb-2q-tRD" secondAttribute="leading" constant="150" id="qTL-hu-dZc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="CIb-2q-tRD"/>
                     </view>
                     <navigationItem key="navigationItem" id="4qe-QH-Ni9"/>
@@ -30,7 +56,7 @@
         <scene sceneID="U8h-Uj-fuc">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="ZRI-xc-8jM" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i1O-bD-T0a">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i1O-bD-T0a" customClass="internetMasterViewController">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

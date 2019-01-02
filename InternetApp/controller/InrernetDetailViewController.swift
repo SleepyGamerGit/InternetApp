@@ -9,9 +9,9 @@
 import UIKit
 import WebKit
 
-public class InternetDetailViewController: UIViewController
+public class internetDetailViewController: UIViewController
 {
-    @IBOutlet weak var webViewer WKWebView!
+    @IBOutlet weak var webViewerWKWebView!
     @IBOutlet weak var screenTitle: UILabel!
     
     var detailTitle : String?
@@ -22,7 +22,7 @@ public class InternetDetailViewController: UIViewController
         }
     }
     
-    var detail Address : String?
+    var detailAddress : String?
     {
         if (detailTitle != nil && screenTitle != nil && webViewer != nil)
         {
@@ -37,11 +37,11 @@ public class InternetDetailViewController: UIViewController
                     loadURL(webAddress: detailAddress!)
                 }
             }
-            screenTitle?.text = detaileTitle
+            screenTitle?.text = detailTitle
         }
     }
     
-    override func viewDidLoad() -> Void
+    public override func viewDidLoad() -> Void
     {
         super.viewDidLoad()
         
@@ -50,7 +50,7 @@ public class InternetDetailViewController: UIViewController
 
     private func LoadIRL(webAddress: String) -> Void
     {
-        let currentURL= URL(string: webAddress)
+        let currentURL = URL(string: webAddress)
         let currentWebRequest = URLRequest(url: currentURL!)
         webViewer.load(currentWebRequest)
     }
@@ -63,11 +63,7 @@ public class InternetDetailViewController: UIViewController
             webViewer.load(requestPDF as URLRequest)
         }
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+  
 
 }
 
