@@ -9,9 +9,9 @@
 import UIKit
 import WebKit
 
-public class internetDetailViewController: UIViewController
+public class InternetDetailViewController: UIViewController
 {
-    @IBOutlet weak var webViewerWKWebView!
+    @IBOutlet weak var webViewer: WKWebView!
     @IBOutlet weak var screenTitle: UILabel!
     
     var detailTitle : String?
@@ -24,9 +24,17 @@ public class internetDetailViewController: UIViewController
     
     var detailAddress : String?
     {
+        didSet
+        {
+            updateView()
+        }
+    }
+    
+    private func updateView() -> Void
+    {
         if (detailTitle != nil && screenTitle != nil && webViewer != nil)
         {
-            if (detail?.range(of: "Definitions", options: .caseInsensitive) != nil)
+            if (detailTitle!.range(of: "Definitions", options: .caseInsensitive) != nil)
             {
                 loadPDF()
             }
@@ -48,7 +56,7 @@ public class internetDetailViewController: UIViewController
         updateView()
     }
 
-    private func LoadIRL(webAddress: String) -> Void
+    private func loadURL(webAddress: String) -> Void
     {
         let currentURL = URL(string: webAddress)
         let currentWebRequest = URLRequest(url: currentURL!)

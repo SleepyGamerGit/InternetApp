@@ -8,9 +8,9 @@
 
 import UIKit
 
-public class InternetMasterViewXontroller: UITableViewController
+public class InternetMasterViewController: UITableViewController
 {
-    private weak var internetDetail : internetDetailViewController? = nil
+    private weak var internetDetail : InternetDetailViewController? = nil
     private lazy var internetTopics : [String] = [String]()
     private lazy var addresses : [String] = [String]()
     
@@ -36,7 +36,7 @@ public class InternetMasterViewXontroller: UITableViewController
         if let splitView = splitViewController
         {
             let currentControllers = splitView.viewControllers
-            internetDetail = currentControllers[0] as? internetDetailViewController
+            internetDetail = currentControllers[0] as? InternetDetailViewController
         }
     }
     
@@ -51,7 +51,7 @@ public class InternetMasterViewXontroller: UITableViewController
         {
             let controllers = split.viewControllers
             internetDetail = (controllers[controllers.count-1] as! UINavigationController).topViewController as?
-                internetDetailViewController
+                InternetDetailViewController
         }
     }
 
@@ -76,14 +76,14 @@ public class InternetMasterViewXontroller: UITableViewController
         return addresses.count
     }
     
-    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+ //   public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+   // {
+     //   let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let rowText = internetTopics[indexPath.row]
-        cell.textLabel!.text = rowText
-        return cell
-    }
+      //  let rowText = internetTopics[indexPath.row]
+       // cell.textLabel!.text = rowText
+       // return cell
+   // }
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
@@ -91,7 +91,7 @@ public class InternetMasterViewXontroller: UITableViewController
         internetDetail?.detailTitle = internetTopics[indexPath.row]
         if (internetDetail != nil)
         {
-            splitViewConrtoller?.showDetailViewConrtoller(internetDetail,seber:nil)
+            splitViewController?.showDetailViewController(internetDetail!, sender: nil)
         }
     }
 }
